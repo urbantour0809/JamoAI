@@ -1,8 +1,13 @@
-<p align="left">
-  <img src="./JamoAI.png" width="60" alt="JamoAI Logo" style="vertical-align: middle; margin-right: 10px;">
-  <span style="font-size: 2em; font-weight: bold; vertical-align: middle;">JamoAI – 딥러닝 기반 한국어 맞춤법 검사기</span>
-</p>
----
+<table>
+<tr>
+<td width="80">
+  <img src="./JamoAI.png" width="60" style="border-radius: 50%;" alt="JamoAI Logo" />
+</td>
+<td>
+  <h2 style="margin-left: 10px;">JamoAI – 딥러닝 기반 한국어 맞춤법 검사기</h2>
+</td>
+</tr>
+</table>
 
 ## 1. 프로젝트명
 
