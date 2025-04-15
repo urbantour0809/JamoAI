@@ -111,7 +111,7 @@ Response:
 
 ## 7. 팀원 및 참고 자료
 
-- 👤 개발자: [Your Name](https://github.com/urbantour0809)
+- 👤 개발자: [UrbanTour](https://github.com/urbantour0809)
 - 🤝 참고 모델: [KoBART - Kakao Brain](https://github.com/SKT-AI/KoBART)
 - 🌐 ngrok: https://ngrok.com
 - ☁️ Cloudtype: https://cloudtype.io
