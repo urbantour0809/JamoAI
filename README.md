@@ -1,33 +1,76 @@
-<p align="center">
-  <img src="./JamoAI.png" width="180" alt="JamoAI Logo" />
+<p align="left">
+  <img src="./JamoAI.png" width="60" alt="JamoAI Logo" style="vertical-align: middle; margin-right: 10px;">
+  <span style="font-size: 2em; font-weight: bold; vertical-align: middle;">JamoAI – 딥러닝 기반 한국어 맞춤법 검사기</span>
 </p>
+---
 
-# 🧠 JamoAI – Korean Spell & Grammar Assistant
+## 1. 프로젝트명
 
-**JamoAI**는 한국어 사용자들을 위한 맞춤법 및 문법 교정기입니다.  
-딥러닝 기반 KoBART 모델을 활용하여, 틀린 문장을 실시간으로 자연스럽게 교정하고 추천까지 제공합니다.
+**JamoAI**는 딥러닝 기반 한국어 맞춤법 교정 시스템으로, KoBART 모델을 이용해 자연스럽고 정확한 문장 교정을 제공합니다.
 
 ---
 
-## 🚀 주요 기능
+## 2. 프로젝트 설명
 
-- ✅ **한국어 문장 실시간 맞춤법 검사**
-- ✅ **자음·모음 기반 문법 오류 인식**
-- ✅ **AI 기반 문장 교정 (KoBART 기반)**
-- ✅ **오타 추천 및 자동완성 기능 (추가 예정)**
+JamoAI는 사용자가 입력한 문장을 실시간으로 받아들이고, 한국어 맞춤법 및 문법 오류를 KoBART 모델을 통해 자동으로 교정하는 시스템입니다.  
+주요 특징은 아래와 같습니다:
 
----
+- 사용자는 Chrome 확장 혹은 웹 입력창에서 문장을 입력
+- Cloudtype 서버가 프록시 역할을 하여 외부 요청을 받아 처리
+- 실질적인 연산은 로컬 GPU 서버에서 실행 (KoBART)
+- 실시간으로 교정 결과를 반환
 
-## 📦 기술 스택
-
-- **FastAPI** – 서버/API
-- **KoBART** – 딥러닝 기반 교정 모델
-- **Cloudtype** – GPU 서버 배포
-- **Chrome Extension** – 실시간 웹 텍스트 검사
+이 방식은 무료로 안정적인 외부 API 엔드포인트를 유지하면서도 고성능 딥러닝 모델을 로컬에서 사용해 비용과 성능을 절충합니다.
 
 ---
 
-## 🧪 예시
+## 3. 목차
+
+1. 프로젝트명  
+2. 프로젝트 설명  
+3. 목차  
+4. 프로젝트 설치 및 실행 방법  
+5. 프로젝트 사용 방법  
+6. 장점과 단점  
+7. 팀원 및 참고 자료  
+8. 라이센스  
+
+---
+
+## 4. 프로젝트 설치 및 실행 방법
+
+### ✅ 로컬 GPU 서버 실행 (KoBART)
+
+```bash
+git clone https://github.com/yourname/jamoai.git
+cd jamoai
+
+# 가상환경 생성 및 라이브러리 설치
+pip install -r requirements.txt
+
+# ngrok 설치 (https://ngrok.com/download)
+./ngrok http 8000  # 또는 ngrok http --region=ap 8000
+
+# KoBART 서버 실행
+python ngrok_starter.py
+```
+
+### ✅ Cloudtype 서버 (중계 서버)
+
+- Cloudtype에서 FastAPI 서버를 배포하고
+- ngrok 주소를 통해 로컬 서버로 요청을 전달
+
+```python
+@app.post("/spellcheck")
+async def forward(req: TextRequest):
+    return await httpx.post("https://<your-ngrok-url>.ngrok.io/spellcheck", json={"text": req.text})
+```
+
+---
+
+## 5. 프로젝트 사용 방법
+
+### ✨ 실시간 맞춤법 교정 사용 예시
 
 ```bash
 POST /spellcheck
@@ -37,18 +80,44 @@ Response:
 { "result": "이것은 틀린 문장입니다." }
 ```
 
----
+### 🖼️ 웹 UI 예시
 
-## ☁️ 배포
-
-Cloudtype에서 GPU 서버를 설정하여 FastAPI 서버를 실행합니다.  
-`.cloudtype/app.yaml` 설정을 참조하세요.
+- 사용자가 문장을 입력하면 실시간으로 아래 영역에 교정 결과 출력
+- 사용자의 오타를 부드럽게 교정
 
 ---
 
-## 👏 만든 이유
+## 6. 구조의 장점과 단점
 
-한국어 맞춤법 교정기는 많지만, **딥러닝 기반으로 고도화된 실시간 교정**은 많지 않습니다.  
-JamoAI는 한글의 자모 특성과 문맥을 반영하여, 보다 자연스럽고 유용한 교정 경험을 제공하는 것을 목표로 합니다.
+### ✅ 장점
+
+- **Cloudtype 주소로 안정적인 API 제공**
+- **KoBART는 로컬 GPU로 실행 → 비용 절약 + 속도 향상**
+- **유연한 확장성**: 나중에 클라우드 GPU로 전환 가능
+- **모듈화된 아키텍처**: 유지보수 쉬움
+
+### ⚠️ 단점
+
+- **로컬 GPU 서버 항상 켜져 있어야 함**
+- **ngrok 무료 버전은 시간제한이 있음**
+- **ngrok 주소가 변경될 경우 Cloudtype 코드도 수정 필요**
 
 ---
+
+## 7. 팀원 및 참고 자료
+
+- 👤 개발자: [Your Name](https://github.com/urbantour0809)
+- 🤝 참고 모델: [KoBART - Kakao Brain](https://github.com/SKT-AI/KoBART)
+- 🌐 ngrok: https://ngrok.com
+- ☁️ Cloudtype: https://cloudtype.io
+
+---
+
+## 8. 라이센스
+
+이 프로젝트는 MIT 라이센스를 따릅니다.  
+자유롭게 사용하되, 저작자 표기를 부탁드립니다.
+
+---
+
+> “JamoAI는 자음모음부터 바로잡는 똑똑한 한국어 교정기입니다.”
