@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./jamoai_logo.png" width="180" alt="JamoAI Logo" />
+  <img src="./JamoAI.png" width="180" alt="JamoAI Logo" />
 </p>
 
 # 🧠 JamoAI – Korean Spell & Grammar Assistant
