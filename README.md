@@ -1,3 +1,4 @@
+
 <table>
 <tr>
 <td width="80">
@@ -11,18 +12,18 @@
 
 ## 1. 프로젝트명
 
-**JamoAI**는 딥러닝 기반 한국어 맞춤법 교정 시스템으로, KoBART 모델을 이용해 자연스럽고 정확한 문장 교정을 제공합니다.
+**JamoAI**는 딥러닝 기반 한국어 맞춤법 교정 시스템으로, ET5 모델(`j5ng/et5-typos-corrector`)을 이용해 자연스럽고 정확한 문장 교정을 제공합니다.
 
 ---
 
 ## 2. 프로젝트 설명
 
-JamoAI는 사용자가 입력한 문장을 실시간으로 받아들이고, 한국어 맞춤법 및 문법 오류를 KoBART 모델을 통해 자동으로 교정하는 시스템입니다.  
+JamoAI는 사용자가 입력한 문장을 실시간으로 받아들이고, 한국어 맞춤법 및 문법 오류를 딥러닝 기반의 ET5 모델을 통해 자동으로 교정하는 시스템입니다.  
 주요 특징은 아래와 같습니다:
 
 - 사용자는 Chrome 확장 혹은 웹 입력창에서 문장을 입력
 - Cloudtype 서버가 프록시 역할을 하여 외부 요청을 받아 처리
-- 실질적인 연산은 로컬 GPU 서버에서 실행 (KoBART)
+- 실질적인 연산은 로컬 GPU 서버에서 실행 (ET5 모델 기반)
 - 실시간으로 교정 결과를 반환
 
 이 방식은 무료로 안정적인 외부 API 엔드포인트를 유지하면서도 고성능 딥러닝 모델을 로컬에서 사용해 비용과 성능을 절충합니다.
@@ -44,7 +45,7 @@ JamoAI는 사용자가 입력한 문장을 실시간으로 받아들이고, 한�
 
 ## 4. 프로젝트 설치 및 실행 방법
 
-### ✅ 로컬 GPU 서버 실행 (KoBART)
+### ✅ 로컬 GPU 서버 실행 (ET5)
 
 ```bash
 git clone https://github.com/yourname/jamoai.git
@@ -56,7 +57,7 @@ pip install -r requirements.txt
 # ngrok 설치 (https://ngrok.com/download)
 ./ngrok http 8000  # 또는 ngrok http --region=ap 8000
 
-# KoBART 서버 실행
+# ET5 서버 실행
 python ngrok_starter.py
 ```
 
@@ -97,7 +98,8 @@ Response:
 ### ✅ 장점
 
 - **Cloudtype 주소로 안정적인 API 제공**
-- **KoBART는 로컬 GPU로 실행 → 비용 절약 + 속도 향상**
+- **ET5는 로컬 GPU로 실행 → 비용 절약 + 속도 향상**
+- **한국어 맞춤법 교정 특화 모델 사용**
 - **유연한 확장성**: 나중에 클라우드 GPU로 전환 가능
 - **모듈화된 아키텍처**: 유지보수 쉬움
 
@@ -112,7 +114,7 @@ Response:
 ## 7. 팀원 및 참고 자료
 
 - 👤 개발자: [UrbanTour](https://github.com/urbantour0809)
-- 🤝 참고 모델: [KoBART - Kakao Brain](https://github.com/SKT-AI/KoBART)
+- 🤝 참고 모델: [`j5ng/et5-typos-corrector`](https://huggingface.co/j5ng/et5-typos-corrector)
 - 🌐 ngrok: https://ngrok.com
 - ☁️ Cloudtype: https://cloudtype.io
 
