@@ -28,7 +28,6 @@ FastAPI 프레임워크 위에 구축되었으며, 보안성, 확장성, 실시�
   <img src="https://img.shields.io/badge/Security-APIKey%2C%20CORS%2C%20HTTPS-red?logo=security" />
   <img src="https://img.shields.io/badge/Logging-RotatingFileHandler-lightgrey?logo=logstash" />
   <img src="https://img.shields.io/badge/Rate%20Limit-slowapi-orange" />
-  <img src="https://img.shields.io/badge/HTTP-client-httpx-yellow" />
 </p>
 
 - 언어: Python 3.12+
