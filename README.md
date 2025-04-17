@@ -21,13 +21,24 @@ FastAPI 프레임워크 위에 구축되었으며, 보안성, 확장성, 실시�
 
 ## 2. 주요 기술 스택
 
-- 언어: Python 3.10+
+<p align="left">
+  <img src="https://img.shields.io/badge/Python-3.12+-blue?logo=python" />
+  <img src="https://img.shields.io/badge/FastAPI-Web%20Framework-brightgreen?logo=fastapi" />
+  <img src="https://img.shields.io/badge/Model-ET5--typos--corrector-informational?logo=huggingface" />
+  <img src="https://img.shields.io/badge/Security-APIKey%2C%20CORS%2C%20HTTPS-red?logo=security" />
+  <img src="https://img.shields.io/badge/Logging-RotatingFileHandler-lightgrey?logo=logstash" />
+  <img src="https://img.shields.io/badge/Rate%20Limit-slowapi-orange" />
+  <img src="https://img.shields.io/badge/HTTP-client-httpx-yellow" />
+</p>
+
+- 언어: Python 3.12+
 - 프레임워크: FastAPI
 - 모델: j5ng/et5-typos-corrector (ETRI ET5)
 - 서버 보안: APIKey, CORS, Trusted Host, HTTPS Redirect, 보안 헤더
 - 로깅: RotatingFileHandler, 마스킹 로거
 - 요청 제한: slowapi
 - 비동기 요청 처리: httpx (Cloudtype 프록시 구성 시)
+
 
 ---
 
