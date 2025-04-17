@@ -99,7 +99,7 @@ Response:
 아래는 Chrome 확장 프로그램 UI 디자인 예시입니다.  
 실시간 맞춤법 교정 기능이 활성화된 상태에서, 사용자 인터페이스가 어떻게 구성되어 있는지를 보여줍니다.
 
-<img src="./JAMOAI_EXTENSION.png" width="300" alt="JamoAI Extension UI Preview" />
+<img src="JAMOAI_EXTENSION.PNG" width="300" alt="JamoAI Extension UI Preview" />
 
 ## 7. 구조의 장점과 단점
 
