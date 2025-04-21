@@ -2,7 +2,7 @@
 <table>
 <tr>
 <td width="80">
-  <img src="./JamoAI.png" width="60" style="border-radius: 50%;" alt="JamoAI Logo" />
+  <img src="assets/icon/JamoAI.png" width="60" style="border-radius: 50%;" alt="JamoAI Logo" />
 </td>
 <td>
   <h2 style="margin-left: 10px;">JamoAI – 딥러닝 기반 한국어 맞춤법 검사기</h2>
