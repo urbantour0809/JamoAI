@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>JamoAI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="JamoAI" class="logo" />
+
+    <h2>딥러닝 기반 한국어 맞춤법 검사기</h2>
+    <p class="description">
+      <strong>JamoAI</strong>는 딥러닝 기반 맞춤법 교정 시스템으로,
+      ET5 모델(<code>j5ng/et5-typos-corrector</code>)을 활용해
+      자연스럽고 정확한 문장 교정을 제공합니다.
+    </p>
+
+    <div class="toggle-section">
+      <label class="toggle-label">
+        맞춤법 검사
+        <input type="checkbox" id="toggle-correct" checked />
+        <span class="slider"></span>
+      </label>
+
+      <label class="toggle-label">
+        이력서 모드
+        <input type="checkbox" id="toggle-resume" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="footer">
+      Contact:
+      <a href="https://github.com/urbantour0809" target="_blank">GitHub</a>
+    </div>
+  </div>
+</body>
+</html>

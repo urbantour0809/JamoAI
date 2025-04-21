@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "JamoAI Spellchecker",
+    "version": "1.0",
+    "description": "실시간 한국어 문장 맞춤법 교정기",
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icon/icon_16x16.png",
+        "48": "icon/icon_48x48.png",
+        "128": "icon/icon_128x128.png"
+      }
+    },
+    "permissions": ["storage"],
+    "host_permissions": [
+      "https://<YOUR_PROXY_DOMAIN>/*"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content_script.js"],
+        "run_at": "document_idle"
+      }
+    ]
+  }
+  
