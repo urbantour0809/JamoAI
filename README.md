@@ -1,3 +1,4 @@
+
 # JamoAI – 딥러닝 기반 한국어 맞춤법 교정기 (ET5 기반)
 
 JamoAI는 ETRI의 ET5 딥러닝 모델을 활용한 실시간 한국어 맞춤법 교정 API입니다.  
@@ -8,7 +9,7 @@ FastAPI 프레임워크 위에 구축되었으며, 보안성, 확장성, 실시�
 ## 1. 프로젝트 설명
 
 이 프로젝트는 Chrome Extension, 웹 클라이언트 등에서 호출 가능한 맞춤법 교정 API를 제공합니다.  
-교정은 `j5ng/et5-typos-corrector` 모델을 기반으로 수행되며, 보안 로그, API 키, Rate Limit, XSS 방지 등의 안전장치도 함께 적용됩니다.
+교정은 j5ng/et5-typos-corrector 모델을 기반으로 수행되며, 보안 로그, API 키, Rate Limit, XSS 방지 등의 안전장치도 함께 적용됩니다.
 
 - 실시간 텍스트 교정 기능
 - API Key 인증
@@ -37,7 +38,6 @@ FastAPI 프레임워크 위에 구축되었으며, 보안성, 확장성, 실시�
 - 로깅: RotatingFileHandler, 마스킹 로거
 - 요청 제한: slowapi
 - 비동기 요청 처리: httpx (Cloudtype 프록시 구성 시)
-
 
 ---
 
@@ -68,11 +68,11 @@ uvicorn main:app --reload
 
 ## 4. API 사용 예시
 
-### POST `/spellcheck`
+### POST /spellcheck
 
 요청:
 
-```
+```http
 POST /spellcheck
 X-API-Key: your_api_key_here
 Content-Type: application/json
@@ -92,7 +92,7 @@ Content-Type: application/json
 }
 ```
 
-### GET `/health`
+### GET /health
 
 서버 헬스 체크용 엔드포인트입니다.
 
@@ -100,7 +100,7 @@ Content-Type: application/json
 
 ## 5. 보안 기능
 
-- API Key 인증 (`X-API-Key` 헤더)
+- API Key 인증 (X-API-Key 헤더)
 - CORS 제한: 등록된 origin만 허용
 - Rate Limiting: 기본 10회/분 제한
 - 보안 로그 마스킹: password, token, api_key 등
@@ -111,7 +111,7 @@ Content-Type: application/json
 
 ## 6. 모델 동작 방식
 
-- GPU 사용 가능 시 `cuda`로 작동
+- GPU 사용 가능 시 cuda로 작동
 - 입력은 1000자 이내 제한
 - 최대 출력 길이 및 추론 시간 제한 적용
 - timeout context manager로 과부하 방지
