@@ -66,7 +66,7 @@ Chrome 확장 프로그램 형태로 동작하며 백엔드 API는 Cloudtype 프
 
 ## 7. 팀원 및 참고 자료
 
-- 개발자: [UrbanTour](https://github.com/urbantour0809)
+- 개발자: 박원빈 [UrbanTour](https://github.com/urbantour0809)
 - 참고 모델: [j5ng/et5-typos-corrector](https://huggingface.co/j5ng/et5-typos-corrector)
 
 ---
